@@ -1,0 +1,334 @@
+document.createElement('sapient-grid');
+
+////////////////////////////////
+webcomponents.spec
+
+document.registerElement('sapient-grid);
+window.customElements.define('sapient-grid',HTMLElement)
+
+Polymer 
+adopted webcomponents spec built-in
+
+var grid = document.createElement('sap-grid);
+document.body.appendChild(grid)
+<sap-grid></sap-grid>
+
+Using React:
+**Prefer declarative way
+
+declarative way:
+const element = <h1>Hello React</h1> 
+
+imperative way:
+const elementNew = React.createElement('h1',null,'Hello');
+
+React-React lib -React Engine +API's
+React n React-dom(inserting ur dom into body)
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+Syntax to create component:
+1 Variable Pattern::useful when small components(non-reusable) for lists
+const element = <h1>Hello React!<h1> //Object
+
+2. FUNCTIONAL Pattern
+create a class and instantiate it..
+
+component creation best practices
+save all ur components as jsx xcept index
+
+render mthod creates a snapshot of virtual DOM tree.virtual dom is inserted into real dom using ReactDOM.
+
+class Greeter{
+    constructor(){
+        this.name = 'Sudivya'
+        this.props = {};//by default empty object
+    }
+}
+
+var greet = new Greeter();
+greet.name = 'Ram';
+
+<Greeter name='Ram'></Greeter>
+
+Property data types:
+string number boolean objects array function 
+
+JSX Rules:
+Elements must follow xml syntax Rules
+Elements must be enclosed with one root element
+<div>
+<h1></h1>
+<p></p>
+</div>
+Elemets can be closed
+<Greeter /> self-closing...The component must have children
+
+<greeter></greeter> The component can have children
+
+Creating placeholder component(Injecting things dynamically)
+class PlaceHolder extends React.Component
+
+FUNCTIONAL Pattern
+can take only pops
+can't maintain state
+
+function Greeter(props) {
+    return (
+        <div>{props.name}</div>
+    )
+}
+
+How to set Deafault props for Hero
+Hero.defaultProps = {
+    heroRank: 1,
+    heroName: 'Pete Hunt'
+};
+Property COnstraint 
+Greeter.ProtoTypes = {
+    name: React.ProtoTypes.string
+}
+
+Component Styling
+classPropert name must be "tabIndex"    camelCase
+
+Component Level Styling
+Each component can have its own styles
+
+greeter.jsx
+import './greeter.css'
+
+Global Styling 
+Global styling across application
+
+//////////////////////////////////////////////////////////////////////////
+Day-3
+
+Pass data from parent to child-hardcoded
+<ChildComponent message = "Welcome"/> //hard-coded
+
+2. through props    <ChildComponent message = {this.props.message}/>
+3 through state     <ChildComponent message = {this.state.name}/>
+
+Child component has to emit event for sending data to parent
+
+Sibling coommunication : Observer Pattern/PubSub Pattern Library MobX
+
+How to update events?
+using events
+event handling is core concept dom programming.
+Event binding firing handling
+
+synthetic event is object...
+REnder Cycle
+
+Event Attatchment://camelCase
+REact Pattern<input onClick = {this.incrementRank } type = "button" value = "IncrementRank"/> //Inline events
+2. Register Event Handler inside constructor:
+
+React uses bind ibnside constructor..I dentification must b done insode 
+
+List Rendering
+Dom element creation
+list items: List ViewLayout
+table row items _GridViewLayout
+div items CardLayout
+
+To create li dynamically
+Immutablity
+flux-redux..
+
+list.map(cb) will return array
+var newArray = array.map(cb)
+
+<ul>
+{newArray}
+</ul>
+
+const listItems = array.
+listItem = HEROES.map((hero) => (
+    <li key = {hero.id.toString()}>
+    <span className = "badge">{hero.id}</span>{hero.name}
+    </li>
+))
+
+Mount
+1. constructor() initial set update
+event listener set up
+2 componentWillMount()
+3 render()--VDOM ---initial render
+dom Rendering
+view
+4componentDidMount()
+after VDOM is transferred as physical DOM
+
+
+express.js documentation http node wrapper used to develop restfull webservices
+node server.js //cli command to run node program
+fetch a browser level universal api ,wrapper for XMLHttpRequest Object
+fetch returns promise.
+
+CORS express
+
+update
+componentWillReceiveProps()
+shouldComponentUpdate()
+componentWillUPdate()
+render()
+componentDidUpdate()
+
+http://paste.ubuntu.com/25124616/
+
+componentWillUpdate(nextProps,nextState) {
+    either props changed or state render cycle called again.
+    console.log('componentWillUpdate called',nextProps,nextState)
+
+
+}
+COntrolled ?Component an dUncontrolled Component/Forms
+
+Reading values from Form-Talking DOM via React Engine Synthetic EventObject
+
+ Reading values from Form -Talking DOM via Ref .is pointer to DOM node object reference
+ <input onChange ={readValue} type = "text" value = "test">
+
+ readValue"(event){
+     const txtValue=e.target.value;
+ }
+
+ <input ref = {(input)=> input} onChange = {readValue} type ="text" value ="test"/>
+ react render cycle don't interfere,ref is a pointer reference
+
+ ////////////////////////////////////////////////////////////////////////////////////
+ browser
+ Native
+ memory router
+
+ npm install react-router-dom --save
+
+ <Router> is root component<route > is child component
+
+ <ROuter>
+ <route>
+ <route>
+ </router>
+
+ Nested Routing
+ match.params
+
+ http://paste.ubuntu.com/25130936
+ Reacct
+
+ JEst 
+ chai
+
+ Eneyzme
+ jest 
+ chai
+
+ chai.js documentation
+ sinon.js(for ansynchronous calls)spy method
+ npm test for running test cases.
+
+ REact is view
+ REdux is state layer
+ npm install --save redux
+ npm install --save react-redux
+
+ Redux is derived from Flux(fb flux architecture) how to segregate data layer and state(view)
+
+ Reducers+Flux = ReduxRedux: applies functional programming concept called pure functions
+
+ 2 types of function wrt data mutation(manipulation)
+ function takes i/p retirns o/p if function takes i/p and same i/p is returned as result without modifying 
+ original i/p = pure function..
+
+ Impure Function:
+ which modifies i/p data and returns the same..-side effects
+ reducer is nthing but pure function.
+ In redux;Immutablity principle used..
+
+ How to make immutable array on insertion?
+ inserting without changing / affecting the original array?
+
+ concat:: immutable api;;creates a new array on insertion
+ spread operator:: 
+
+ same ques for deletion? immutable method?
+ slice immutable 
+ splice
+ MobX : u don't need to write any algorithm..very effective..
+
+ Reducer handles data section
+ reducer and view don't interact directly in b/n there is an architecture called action/method.
+ Methods manipulate data.
+
+ Store is an object..MAnager.manages dta flow..communicates 
+ Reducer-Action-Store..
+ Action is object represented plain js t;;2 props: input property[optional]
+ type[must] 
+ store has dispatch api..it takes action param... store.dispatch({action})  ..it calls reducer..reducer dispatches action
+data is received by store(using listener api)....when data is ready give it to view as a prop...
+reducer takes state and action
+
+action.payload
+Mediator design pattern
+React controls redux through ref object passed by mediator.\
+
+curry function higher order component
+
+React- Redux Binding:
+npm install --save react-redux
+npm install readt-redux --save
+react-redux offers
+
+API 
+<Provider store>
+It is acomponent
+
+connect([mapStateToProps],mapDispatchToProps],[mergeProps],[options]) function
+
+function mapStateToProps //map state(data of redux to react as a prop)
+redux to react
+LHS: .Rhs in return
+Action Mapping:ur action will b dispatched as 
+
+connect binds react nd redux
+takes 2 params state mapping and action mapping 
+wrap ur componentin Provider
+
+
+Action creater 2 types: synchronous-ansynchronous
+middleware
+Action:
+Plain js object contains 2 properties
+
+store.dispatch(NameAction);
+store.disaptch({type:'ADD' ,name : 'Sudivya'})
+
+
+ActionCreator:
+function who creates action action.
+factory function which returns action object.
+ es-6 syntax for name:name is name
+ const createNameActon=(name) => {
+     return {
+         type:'ADD'
+,
+name     }
+ } 
+
+store.dispatch(createNameActon('Sudivya'));
+
+grunt->gulp->Webpack(built over node.js):
+Bundling TRansformation utility 
+webpack offers caching,multi-bundeling:improvrs performance
+Transformation Sass to css ,
+
+install webpack as dev dependecy
+npm install webpack -g
+
+code .
+es6->es-5
+will automatically load css from app and load it into html...using chaining
